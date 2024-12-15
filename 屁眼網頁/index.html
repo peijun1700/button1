@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>屁眼音效網頁</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fdf6e3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff4a4a;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        @media (max-width: 768px) {
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>按下按鈕聽屁眼音效</h1>
+    <button onclick="playSound()">按我！</button>
+    <audio id="sound">
+        <source src="屁眼.m4a" type="audio/mp4">
+        您的瀏覽器不支援音訊播放。
+    </audio>
+    <script>
+        function playSound() {
+            const sound = document.getElementById("sound");
+            sound.currentTime = 0; // 確保每次點擊從頭播放
+            sound.play().catch(error => {
+                alert("音效無法播放，請確保音量已開啟或允許播放音訊。");
+            });
+        }
+    </script>
+</body>
+</html>
